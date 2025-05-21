@@ -1,6 +1,7 @@
+package components.Timer;
 
 
-public class DeskMan extends Time1L{
+public class Timer extends Time1L{
 
 
      Time StartTime;
@@ -9,7 +10,7 @@ public class DeskMan extends Time1L{
 
 
 
-     public DeskMan() {
+     public Timer() {
           createNewRep();
      }
 

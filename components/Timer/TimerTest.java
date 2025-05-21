@@ -1,12 +1,13 @@
+package components.Timer;
 
 import java.util.Scanner;
 
-public class Interface1 {
+public class TimerTest {
     
     public static void main(String[] args) {
         // This is just a placeholder for the main method.
         // You can create instances of Time1L and DeskMan here to test their functionality.
-        DeskMan deskMan = new DeskMan();
+        Timer deskMan = new Timer();
 
 
         System.out.println(deskMan.start());
@@ -25,6 +26,8 @@ public class Interface1 {
         System.out.println(deskMan.timeElapsed());
         System.out.println("Start Time: " + deskMan.StartTime.toString());
         System.out.println("End Time: " + deskMan.EndTime.toString());
+
+        scanner.close();
     }
 
 }
