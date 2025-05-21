@@ -1,98 +1,55 @@
-import java.util.*;
-import static java.util.Calendar.*;
-
-public class DeskMan{
-
-     public class timer{
 
 
-          class Date1{
-               int month;
-               int day;
-               int year;
-          }
-
-          class Time1{
-               int hour;
-               int minute;
-               int second;
-               boolean am;
-          }
+public class DeskMan extends Time1L{
 
 
-          Date1 date;
-          Time1 time;
-          int duration;
+     Time StartTime;
+     Time EndTime;
+     int duration;
 
 
-          public timer(){
 
-               createNewRep();
-          }
-
-
-          public void createNewRep(){
-               TimeZone tz = TimeZone.getTimeZone("America/New_York");
-               Calendar c = Calendar.getInstance(tz);
-
-               date = new Date1();
-               time = new Time1();
-
-               //sets current date
-               this.date.month = c.get(MONTH);
-               this.date.day = c.get(DATE);
-               this.date.year = c.get(YEAR);
-
-               //sets current time
-               this.time.hour = c.get(HOUR);
-               this.time.minute = c.get(MINUTE);
-               this.time.second = c.get(SECOND);
-
-               
-
-               if(c.get(HOUR_OF_DAY) > 12){
-                    this.time.am = false;
-               }else{
-                    this.time.am = true;
-               }
-
-
-          }
-
-
-          public void clear(){
-               createNewRep();
-          }
-
-          
-          @Override
-          public String toString(){
-               String date;
-               String timeStr = String.format("%d:%02d:%02d", this.time.hour, this.time.minute, this.time.second);
-
-               if(this.time.am){
-
-                    date = "Date: " + this.date.month + "/" + this.date.day + "/" + this.date.year + "\n" +
-                           "Time: " + timeStr + " AM";
-
-               }else{
-
-                    date = "Date: " + this.date.month + "/" + this.date.day + "/" + this.date.year + "\n" +
-                           "Time: " + timeStr + " PM";
-               }
-
-               return date;
-          }
-
+     public DeskMan() {
+          createNewRep();
      }
 
-     public static void main(String[] args) {
-          DeskMan d = new DeskMan();
-          timer t = d.new timer();
 
-
-          
-          System.out.println(t.toString());
-
+     private void createNewRep() {
+          StartTime = new Time1L();
+          EndTime = new Time1L();
+          duration = 0;
      }
+
+
+     public String start(){
+
+          this.StartTime.reset();
+
+          return "**Started**   Start time: " + this.StartTime.toString();
+     }
+
+     public String Stop(){
+
+          this.EndTime.reset();
+
+          return "**Stopped**   End time: " + this.EndTime.toString();
+     }
+
+     public int duration(){
+          int StartTime1 = this.StartTime.Hour() * 3600 + this.StartTime.Minute() * 60 + this.StartTime.Second();
+          int EndTime1 = this.EndTime.Hour() * 3600 + this.EndTime.Minute() * 60 + this.EndTime.Second();
+          duration = EndTime1 - StartTime1;
+          return duration;
+     }
+
+     public String timeElapsed(){
+
+          int hours = this.duration / 3600;
+          int minutes = (this.duration % 3600) / 60;
+          int seconds = this.duration % 60;
+
+          return String.format("Elapsed time: %02d:%02d:%02d", hours, minutes, seconds);
+     }
+
+     
 }
