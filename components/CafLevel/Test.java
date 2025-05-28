@@ -5,7 +5,9 @@ public class Test {
         
         Element coffee = new Element(114.0);
 
-        System.out.println(coffee.getCaffineContent());
+        coffee.getCaffineContent();
+
+        System.out.println(coffee.stats());
         
     }
 }
