@@ -2,6 +2,8 @@ package components.Timer;
 
 import java.util.Scanner;
 
+import System;
+
 public class TimerTest {
     
     public static void main(String[] args) {
