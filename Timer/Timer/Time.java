@@ -1,4 +1,4 @@
-package components.Timer;
+package Timer;
 public interface Time {
     
     int Month();

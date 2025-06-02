@@ -1,4 +1,4 @@
-package components.Timer;
+package Timer;
 
 import java.util.Scanner;
 

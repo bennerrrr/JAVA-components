@@ -1,4 +1,4 @@
-package components.Timer;
+package Timer;
 
 
 public class Timer extends Time1L{
